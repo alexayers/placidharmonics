@@ -14,4 +14,10 @@ final suffixStyles = [
   'tronic',
   'house',
   'tone',
+  'ism',
+  'track',
+  'synth',
+  'bro',
+  'euro',
+  'dance',
 ];
