@@ -1,0 +1,17 @@
+final prefixStyles = [
+  'field',
+  'oid',
+  'wave',
+  'core',
+  'pop',
+  'beat',
+  'step',
+  'hop',
+  'onica',
+  'style',
+  'age',
+  'bit',
+  'tronic',
+  'house',
+  'tone',
+];
