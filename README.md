@@ -9,3 +9,5 @@ Nothing much yet, but to run.
 cd ./packages/app
 webdev serve
 ```
+
+1. Prompt Magic: https://www.alexayers.com/prompt_magic/
