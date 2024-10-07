@@ -1,5 +1,5 @@
-name: prompt_magic
-description: Generate Suno-like prompts.
+name: drum_machine
+description: A drum machine
 version: 1.0.0
 publish_to: 'none'
 repository: https://github.com/alexayers/placidharmonics.git

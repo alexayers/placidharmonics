@@ -1,3 +1,8 @@
+import 'package:prompt_magic/styles/adjective_styles.dart';
+import 'package:prompt_magic/styles/full_styles.dart';
+import 'package:prompt_magic/styles/partial_styles.dart';
+import 'package:prompt_magic/styles/prefix_styles.dart';
+import 'package:prompt_magic/styles/suffix_styles.dart';
 import 'package:teenytinytwodee/application/game_screen.dart';
 import 'package:teenytinytwodee/application/game_screen_overlay.dart';
 import 'package:teenytinytwodee/input/mouse.dart';
@@ -10,11 +15,6 @@ import 'package:teenytinytwodee/rendering/renderer.dart';
 import 'package:teenytinytwodee/utils/html_utils.dart';
 import 'package:teenytinytwodee/utils/math_utils.dart';
 import 'package:teenytinytwodee/utils/timer_util.dart';
-import 'package:test_bed/styles/adjective_styles.dart';
-import 'package:test_bed/styles/full_styles.dart';
-import 'package:test_bed/styles/partial_styles.dart';
-import 'package:test_bed/styles/prefix_styles.dart';
-import 'package:test_bed/styles/suffix_styles.dart';
 
 class MainScreen implements GameScreen {
   final _renderer = Renderer();
