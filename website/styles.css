@@ -1,0 +1,119 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+
+a {
+  color: #3c8ac9;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #f0f0f0;
+  /* Add any other styling you want for the top navigation */
+}
+
+.container {
+  height: 100%;
+  display: flex;
+}
+
+.left-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+  /* Optional: add a background color to the left container */
+  z-index: 999;
+}
+
+.right-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #eaeaea;
+  /* Optional: add a background color to the right container */
+  max-width: 50%;
+}
+
+.title-block {
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 80px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #999999;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.social-links a {
+  color: #999999;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: filter 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-links a:hover {
+  color: #34b7f9;
+}
+
+.quote {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: right;
+  max-width: 80%;
+  /* Adjust the max-width as desired */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Add a semi-transparent black background */
+  padding: 10px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.black-white {
+  filter: grayscale(100%);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-container,
+  .right-container {
+    max-width: 100%;
+    height: 50%;
+  }
+
+  .quote {
+    position: static;
+    text-align: center;
+    max-width: 100%;
+  }
+}
