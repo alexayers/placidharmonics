@@ -21,7 +21,7 @@ class DrumMachineOverlay extends GameScreenOverlay {
   int _currentBar = 0;
   int _currentBPM = 120;
   int _currentDelay = 120;
-  String _currentInstrument = 'Hand Clap';
+  String _currentInstrument = 'Bass Drum';
   final TimerUtil _timer = TimerUtil();
 
   @override
@@ -120,7 +120,7 @@ class DrumMachineOverlay extends GameScreenOverlay {
 
   @override
   void renderLoop() {
-    int offsetX = 20;
+    int offsetX = 250;
 
     _renderer.rect(
       x: offsetX,
@@ -160,7 +160,7 @@ class DrumMachineOverlay extends GameScreenOverlay {
       color: hexToColor('#202021'),
     );
 
-    offsetX = 50;
+    offsetX = 270;
 
     _renderer.print(
       msg: _currentInstrument,
@@ -169,7 +169,7 @@ class DrumMachineOverlay extends GameScreenOverlay {
       font: Font(family: 'vt323', size: 20, color: white),
     );
 
-    offsetX += 200;
+    offsetX = 490;
 
     _renderer.rect(
       x: offsetX,
@@ -179,7 +179,7 @@ class DrumMachineOverlay extends GameScreenOverlay {
       color: hexToColor('#202021'),
     );
 
-    offsetX = 260;
+    offsetX = 500;
 
     _renderer.print(
       msg: _currentBPM.toString(),
@@ -197,7 +197,7 @@ class DrumMachineOverlay extends GameScreenOverlay {
       font: Font(family: 'vt323', size: 20, color: white),
     );
 
-    offsetX = 50;
+    offsetX = 280;
 
     for (int i = 0; i < 16; i++) {
       if (_drumTrack[_currentInstrument]![i] == 1) {
@@ -259,7 +259,7 @@ class DrumMachineOverlay extends GameScreenOverlay {
   List<Widget> getWidgets() {
     final List<Widget> widgets = [];
 
-    const offsetX = 30;
+    const offsetX = 265;
 
     final windowWidget = WindowWidget(
       id: 'drumMachine',
@@ -957,49 +957,5 @@ class DrumMachineOverlay extends GameScreenOverlay {
     widgets.add(windowWidget);
 
     return widgets;
-  }
-
-  String getYolkhead() {
-    const words = [
-      'flamboyant',
-      'yolk',
-      'zebra',
-      'quasar',
-      'turbulent',
-      'gizmo',
-      'whimsical',
-      'juxtapose',
-      'luminescent',
-      'cryptic',
-      'serendipity',
-      'quixotic',
-      'ephemeral',
-      'phantasm',
-      'zenith',
-    ];
-    final scrambled = StringBuffer();
-    final delimiter = [' ', '-', ''];
-
-    final yolkhead = getRandomArrayElement(words) as String;
-
-    try {
-      for (int i = 0; i < yolkhead.length; i++) {
-        if (getRandomBetween(1, 100) < 10) {
-          final total = getRandomBetween(1, 4);
-
-          for (int j = 0; j < total; j++) {
-            scrambled.write(
-              yolkhead[i] + (getRandomArrayElement(delimiter) as String),
-            );
-          }
-        } else {
-          scrambled.write(yolkhead[getRandomBetween(0, yolkhead.length)]);
-        }
-      }
-    } catch (e) {
-      scrambled.write(yolkhead);
-    }
-
-    return scrambled.toString();
   }
 }
