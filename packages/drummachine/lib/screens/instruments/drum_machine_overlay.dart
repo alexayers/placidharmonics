@@ -461,26 +461,18 @@ class DrumMachineOverlay extends GameScreenOverlay {
         color: drkGray,
         mouseOverColor: ltGray,
         text: '-',
-        font: Font(family: 'vt323', size: 16, color: white),
+        font: Font(
+          family: 'vt323',
+          size: 16,
+          color: Color(
+            red: 255,
+            green: 255,
+            blue: 255,
+          ),
+        ),
         onClick: () {
           _wavFormSynthesis.decreaseVolume('Snare');
         },
-      ),
-    );
-
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
       ),
     );
 
@@ -537,21 +529,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     windowWidget.addWidget(
@@ -605,21 +582,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     windowWidget.addWidget(
@@ -673,21 +635,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     windowWidget.addWidget(
@@ -741,21 +688,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     windowWidget.addWidget(
@@ -809,21 +741,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     windowWidget.addWidget(
@@ -877,21 +794,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     windowWidget.addWidget(
@@ -944,21 +846,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     windowWidget.addWidget(
@@ -1012,21 +899,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     windowWidget.addWidget(
@@ -1080,21 +952,6 @@ class DrumMachineOverlay extends GameScreenOverlay {
       ),
     );
 
-    windowWidget.addWidget(
-      DialWidget(
-        id: 'drumMachine',
-        x: instrumentSelectorX + 12,
-        y: 140,
-        width: 24,
-        height: 24,
-        radius: 10,
-        currentValue: 50,
-        minValue: 0,
-        maxValue: 100,
-        color: drkGray,
-        mouseOverColor: ltGray,
-      ),
-    );
     instrumentSelectorX += 25;
 
     widgets.add(windowWidget);
