@@ -10,4 +10,4 @@ cd ./packages/app
 webdev serve
 ```
 
-1. Prompt Magic: https://www.alexayers.com/prompt_magic/
+1. Prompt Magic: https://www.placidharmonics.com/prompt_magic/

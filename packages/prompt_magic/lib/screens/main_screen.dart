@@ -43,18 +43,20 @@ class MainScreen implements GameScreen {
 
   @override
   void keyboard(int keyCode) {
-    switch (keyCode) {
-      case 65:
+    switch (getKeyFromCode(keyCode)) {
+      case KeyboardKey.a:
         if (!_isAlexMakingMagic) {
           _timerUtil.start();
           letterTicker = 0;
           _generatePrompt();
           _isAlexMakingMagic = true;
         }
-      case 67:
+      case KeyboardKey.c:
         copyToClipboard(
           _tokens.toString(),
         );
+      default:
+      // Do nothing satisfying the linter
     }
   }
 

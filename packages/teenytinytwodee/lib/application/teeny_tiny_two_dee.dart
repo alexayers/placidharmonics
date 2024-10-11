@@ -8,7 +8,6 @@ import 'package:teenytinytwodee/gameEvent/key_press_event.dart';
 import 'package:teenytinytwodee/gameEvent/key_release_event.dart';
 import 'package:teenytinytwodee/gameEvent/screen_change_event.dart';
 import 'package:teenytinytwodee/gui/widget_manager.dart';
-import 'package:teenytinytwodee/input/keyboard.dart';
 import 'package:teenytinytwodee/input/mouse.dart';
 import 'package:teenytinytwodee/logger/logger.dart';
 import 'package:teenytinytwodee/rendering/renderer.dart';
@@ -121,7 +120,6 @@ class TeenyTinyTwoDeeApp {
         _currentGameScreen.onExit();
       }
 
-      flushKeys();
       _currentScreenName = gameEvent.payload as String;
 
       _currentGameScreen = _gameScreens[_currentScreenName]!;
@@ -145,7 +143,6 @@ class TeenyTinyTwoDeeApp {
         _currentGameScreenOverlay!.onClose();
       }
 
-      flushKeys();
       _currentOverlayScreenName = gameEvent.payload as String;
 
       _currentGameScreenOverlay =

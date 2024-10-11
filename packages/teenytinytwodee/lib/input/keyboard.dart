@@ -1,107 +1,144 @@
-import 'package:teenytinytwodee/application/global_state.dart';
-
-({
-  int a,
-  int b,
-  int c,
-  int d,
-  int delete,
-  int down,
-  int e,
-  int eight,
-  int enter,
-  int escape,
-  int f,
-  int five,
-  int four,
-  int g,
-  int h,
-  int i,
-  int j,
-  int k,
-  int l,
-  int left,
-  int m,
-  int n,
-  int nine,
-  int o,
-  int one,
-  int p,
-  int q,
-  int r,
-  int right,
-  int s,
-  int seven,
-  int shift,
-  int six,
-  int space,
-  int t,
-  int three,
-  int two,
-  int u,
-  int up,
-  int v,
-  int w,
-  int x,
-  int y,
-  int z,
-  int zero
-}) keyboardInput = (
-  escape: 27,
-  space: 32,
-  up: 38,
-  down: 40,
-  left: 37,
-  right: 39,
-  enter: 13,
-  delete: 8,
-  shift: 16,
-  one: 49,
-  two: 50,
-  three: 51,
-  four: 52,
-  five: 53,
-  six: 54,
-  seven: 55,
-  eight: 56,
-  nine: 57,
-  zero: 48,
-  a: 65,
-  b: 66,
-  c: 67,
-  d: 68,
-  e: 69,
-  f: 70,
-  g: 71,
-  h: 72,
-  i: 73,
-  j: 74,
-  k: 75,
-  l: 76,
-  m: 77,
-  n: 78,
-  o: 79,
-  p: 80,
-  q: 81,
-  r: 82,
-  s: 83,
-  t: 84,
-  u: 85,
-  v: 86,
-  w: 87,
-  x: 88,
-  y: 89,
-  z: 90,
-);
-
-bool isKeyDown(int keyCode) {
-  if (GlobalState.hasState('KEY_$keyCode')) {
-    return GlobalState.getState('KEY_$keyCode') as bool;
-  } else {
-    return false;
-  }
+enum KeyboardKey {
+  escape,
+  space,
+  up,
+  down,
+  left,
+  right,
+  enter,
+  delete,
+  shift,
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  zero,
+  a,
+  b,
+  c,
+  d,
+  e,
+  f,
+  g,
+  h,
+  i,
+  j,
+  k,
+  l,
+  m,
+  n,
+  o,
+  p,
+  q,
+  r,
+  s,
+  t,
+  u,
+  v,
+  w,
+  x,
+  y,
+  z,
 }
 
-void flushKeys() {
-  GlobalState.removeWhere('KEY');
+KeyboardKey getKeyFromCode(int code) {
+  switch (code) {
+    case 27:
+      return KeyboardKey.escape;
+    case 32:
+      return KeyboardKey.space;
+    case 38:
+      return KeyboardKey.up;
+    case 40:
+      return KeyboardKey.down;
+    case 37:
+      return KeyboardKey.left;
+    case 39:
+      return KeyboardKey.right;
+    case 13:
+      return KeyboardKey.enter;
+    case 8:
+      return KeyboardKey.delete;
+    case 16:
+      return KeyboardKey.shift;
+    case 49:
+      return KeyboardKey.one;
+    case 50:
+      return KeyboardKey.two;
+    case 51:
+      return KeyboardKey.three;
+    case 52:
+      return KeyboardKey.four;
+    case 53:
+      return KeyboardKey.five;
+    case 54:
+      return KeyboardKey.six;
+    case 55:
+      return KeyboardKey.seven;
+    case 56:
+      return KeyboardKey.eight;
+    case 57:
+      return KeyboardKey.nine;
+    case 48:
+      return KeyboardKey.zero;
+    case 65:
+      return KeyboardKey.a;
+    case 66:
+      return KeyboardKey.b;
+    case 67:
+      return KeyboardKey.c;
+    case 68:
+      return KeyboardKey.d;
+    case 69:
+      return KeyboardKey.e;
+    case 70:
+      return KeyboardKey.f;
+    case 71:
+      return KeyboardKey.g;
+    case 72:
+      return KeyboardKey.h;
+    case 73:
+      return KeyboardKey.i;
+    case 74:
+      return KeyboardKey.j;
+    case 75:
+      return KeyboardKey.k;
+    case 76:
+      return KeyboardKey.l;
+    case 77:
+      return KeyboardKey.m;
+    case 78:
+      return KeyboardKey.n;
+    case 79:
+      return KeyboardKey.o;
+    case 80:
+      return KeyboardKey.p;
+    case 81:
+      return KeyboardKey.q;
+    case 82:
+      return KeyboardKey.r;
+    case 83:
+      return KeyboardKey.s;
+    case 84:
+      return KeyboardKey.t;
+    case 85:
+      return KeyboardKey.u;
+    case 86:
+      return KeyboardKey.v;
+    case 87:
+      return KeyboardKey.w;
+    case 88:
+      return KeyboardKey.x;
+    case 89:
+      return KeyboardKey.y;
+    case 90:
+      return KeyboardKey.z;
+    default:
+      throw Exception('Unknown key code: $code');
+  }
 }

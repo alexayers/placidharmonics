@@ -958,4 +958,48 @@ class DrumMachineOverlay extends GameScreenOverlay {
 
     return widgets;
   }
+
+  String getYolkhead() {
+    const words = [
+      'flamboyant',
+      'yolk',
+      'zebra',
+      'quasar',
+      'turbulent',
+      'gizmo',
+      'whimsical',
+      'juxtapose',
+      'luminescent',
+      'cryptic',
+      'serendipity',
+      'quixotic',
+      'ephemeral',
+      'phantasm',
+      'zenith',
+    ];
+    final scrambled = StringBuffer();
+    final delimiter = [' ', '-', ''];
+
+    final yolkhead = getRandomArrayElement(words) as String;
+
+    try {
+      for (int i = 0; i < yolkhead.length; i++) {
+        if (getRandomBetween(1, 100) < 10) {
+          final total = getRandomBetween(1, 4);
+
+          for (int j = 0; j < total; j++) {
+            scrambled.write(
+              yolkhead[i] + (getRandomArrayElement(delimiter) as String),
+            );
+          }
+        } else {
+          scrambled.write(yolkhead[getRandomBetween(0, yolkhead.length)]);
+        }
+      }
+    } catch (e) {
+      scrambled.write(yolkhead);
+    }
+
+    return scrambled.toString();
+  }
 }

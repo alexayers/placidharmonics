@@ -19,7 +19,11 @@ class AudioFile {
     return _audio.volume as double;
   }
 
-  bool isLooped() {
+  set loop(bool loop) {
+    _audio.loop = loop;
+  }
+
+  bool get loop {
     return _audio.loop;
   }
 

@@ -73,9 +73,9 @@ class VocaloidScreen implements GameScreen {
     if (_timerUtil.hasTimePassed()) {
       _textTpSpeech.speak(
         getYolkhead(),
-        rate: 1.10,
-        pitch: getRandomBetween(1, 90) * 1.0,
-        volume: 1.0,
+        rate: getRandomBetween(1, 1000) * 1.0,
+        pitch: getRandomBetween(1, 1000) * 1.0,
+        volume: .5,
       );
 
       _timerUtil.reset();
