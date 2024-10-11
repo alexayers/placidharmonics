@@ -1,15 +1,15 @@
-name: teenytinytwodee
-description: A rapid prototyping framework for 2D games
+name: vocaloid
+description: Vocaloid
 version: 1.0.0
 publish_to: 'none'
-license: MIT
-repository: https://github.com/alexayers/daaaart.git
+repository: https://github.com/alexayers/placidharmonics.git
 
 environment:
   sdk: ^3.3.4
 
-# Add regular dependencies here.
 dependencies:
+  teenytinytwodee:
+    path: ../teenytinytwodee
   uuid: ^4.4.0
 
 dev_dependencies:

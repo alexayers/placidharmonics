@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:teenytinytwodee/utils/timer_util.dart';
+import 'package:teenytinytwodee/utils/timer_utils.dart';
 import 'package:test/test.dart';
 
 void main() {

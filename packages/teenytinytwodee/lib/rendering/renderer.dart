@@ -117,6 +117,7 @@ class Renderer {
         rbgToHex(font.color.red, font.color.green, font.color.blue);
     _ctx.globalAlpha = font.color.alpha;
     _ctx.fillText(msg, x, y);
+    _ctx.imageSmoothingEnabled = false;
     _ctx.globalAlpha = 1;
   }
 

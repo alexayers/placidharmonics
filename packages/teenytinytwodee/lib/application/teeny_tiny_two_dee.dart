@@ -37,6 +37,8 @@ class TeenyTinyTwoDeeApp {
       if (_currentGameScreenOverlay != null) {
         _widgetManagers[_currentOverlayScreenName]!.mouseOver(canvasX, canvasY);
         return;
+      } else {
+        _currentGameScreen.mouseMove(canvasX, canvasY);
       }
     });
 

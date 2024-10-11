@@ -1,15 +1,4 @@
-import 'package:teenytinytwodee/application/game_screen_overlay.dart';
-import 'package:teenytinytwodee/audio/wave_form_synthesis.dart';
-import 'package:teenytinytwodee/gui/button_widget.dart';
-import 'package:teenytinytwodee/gui/dial_widget.dart';
-import 'package:teenytinytwodee/gui/text_button_widget.dart';
-import 'package:teenytinytwodee/gui/widget.dart';
-import 'package:teenytinytwodee/gui/window_widget.dart';
-import 'package:teenytinytwodee/primitives/color.dart';
-import 'package:teenytinytwodee/rendering/font.dart';
-import 'package:teenytinytwodee/rendering/renderer.dart';
-import 'package:teenytinytwodee/utils/color_utils.dart';
-import 'package:teenytinytwodee/utils/timer_util.dart';
+import 'package:teenytinytwodee/teenytinytwodee.dart';
 
 class DrumMachineOverlay extends GameScreenOverlay {
   final _renderer = Renderer();

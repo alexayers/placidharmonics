@@ -3,18 +3,7 @@ import 'package:prompt_magic/styles/full_styles.dart';
 import 'package:prompt_magic/styles/partial_styles.dart';
 import 'package:prompt_magic/styles/prefix_styles.dart';
 import 'package:prompt_magic/styles/suffix_styles.dart';
-import 'package:teenytinytwodee/application/game_screen.dart';
-import 'package:teenytinytwodee/application/game_screen_overlay.dart';
-import 'package:teenytinytwodee/input/mouse.dart';
-import 'package:teenytinytwodee/logger/logger.dart';
-import 'package:teenytinytwodee/primitives/color.dart';
-import 'package:teenytinytwodee/rendering/animated_sprite.dart';
-import 'package:teenytinytwodee/rendering/font.dart';
-import 'package:teenytinytwodee/rendering/particle.dart';
-import 'package:teenytinytwodee/rendering/renderer.dart';
-import 'package:teenytinytwodee/utils/html_utils.dart';
-import 'package:teenytinytwodee/utils/math_utils.dart';
-import 'package:teenytinytwodee/utils/timer_util.dart';
+import 'package:teenytinytwodee/teenytinytwodee.dart';
 
 class MainScreen implements GameScreen {
   final _renderer = Renderer();
@@ -108,10 +97,10 @@ class MainScreen implements GameScreen {
   void logicLoop() {}
 
   @override
-  void mouseClick(double x, double y, MouseButton mouseButton) {}
+  void mouseClick(int x, int y, MouseButton mouseButton) {}
 
   @override
-  void mouseMove(double x, double y) {}
+  void mouseMove(int x, int y) {}
 
   @override
   void onEnter() {}

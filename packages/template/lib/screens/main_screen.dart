@@ -13,10 +13,10 @@ class TemplateScreen implements GameScreen {
   void logicLoop() {}
 
   @override
-  void mouseClick(double x, double y, MouseButton mouseButton) {}
+  void mouseClick(int x, int y, MouseButton mouseButton) {}
 
   @override
-  void mouseMove(double x, double y) {}
+  void mouseMove(int x, int y) {}
 
   @override
   void onEnter() {}

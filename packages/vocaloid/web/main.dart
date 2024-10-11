@@ -1,8 +1,8 @@
 // This is the entry point of the application.
 
-import 'package:template/app.dart';
+import 'package:vocaloid/app.dart';
 
 void main() {
-  final app = TemplateApp();
+  final app = VocaloidApp();
   app.init();
 }
