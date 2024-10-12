@@ -19,7 +19,7 @@ class SunoApi {
           await http.get(Uri.https(baseAPI, '/api/clip/$songToGrab'));
 
       if (results.statusCode != 200) {
-        throw Exception('Failed to load song');
+        continue;
       }
 
       final sunoSong =
