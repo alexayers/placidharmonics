@@ -50,7 +50,7 @@ SunoSong responseToSunoSong(Map<String, dynamic> songMap) {
         songMap.containsKey('image_url') ? songMap['image_url'] as String : '',
     type: type,
     artistId: songMap['user_id'] as String,
-    artistName: songMap['display_name'] as String,
+    artistName: songMap['handle'] as String,
     avatarImageUrl: songMap.containsKey('avatar_image_url')
         ? songMap['avatar_image_url'] as String
         : '',

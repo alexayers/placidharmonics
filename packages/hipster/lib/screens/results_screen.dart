@@ -329,10 +329,14 @@ class HipsterScreen implements GameScreen {
 
     offsetY += 20;
 
+    final artists = _artists.join(',');
+
     _renderer.print(
       x: offsetX,
       y: offsetY,
-      msg: 'Artists: ${_artists.join(', ')}',
+      msg: artists.length > 40
+          ? 'Artists: ${artists.substring(0, 40)}...'
+          : 'Artists: $artists',
       font: Font(
         size: 12,
         family: 'Arial',
@@ -443,7 +447,9 @@ class HipsterScreen implements GameScreen {
     _renderer.print(
       x: offsetX,
       y: offsetY,
-      msg: 'Artists: ${_songList[_currentSong].artistName}',
+      msg: _songList[_currentSong].artistName.length > 40
+          ? 'Artists: : ${_songList[_currentSong].artistName.substring(0, 40)}...'
+          : 'Artists: : ${_songList[_currentSong].artistName}',
       font: Font(
         size: 12,
         family: 'Arial',
