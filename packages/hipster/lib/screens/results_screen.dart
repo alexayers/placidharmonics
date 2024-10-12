@@ -60,7 +60,6 @@ class HipsterScreen implements GameScreen {
     }
 
     _songID = uri.queryParameters['song'];
-
     _songList = await _sunoAPI.getSongList(_songID!);
 
     final Set<String> tags = {};
@@ -69,18 +68,6 @@ class HipsterScreen implements GameScreen {
     int offsetX = 200;
 
     for (final song in _songList) {
-      _logger.info('id: https://www.suno.com/song/${song.id}');
-      _logger.info('Image: ${song.image}');
-      _logger.info('Type: ${song.type}');
-      _logger.info('Created: ${song.created}');
-      _logger.info('Title: ${song.title}');
-      _logger.info('Tags: ${song.tags}');
-      _logger.info('Artist: ${song.artistName}');
-      _logger.info('Prompt: ${song.prompt}');
-
-      _logger.info('Related songs: ${song.songIds}');
-      _logger.info('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-');
-
       _artistImages.add(ImageElement(src: song.avatarImageUrl));
       _coverImages.add(ImageElement(src: song.image));
       tags.addAll(song.tags.split(',').map((e) => e.trim()));
@@ -101,19 +88,9 @@ class HipsterScreen implements GameScreen {
       );
 
       offsetX += _blockSize;
-
       _artists.add(song.artistName);
     }
     _currentSong = _songList.length - 1;
-
-    final totalDuration = DateTime.parse(_songList.last.created)
-        .difference(DateTime.parse(_songList.first.created));
-
-    _logger.info('------- Analysis -------');
-    _logger.info('Artists: $_artists');
-    _logger.info('Total Extensions: ${_songList.length}');
-    _logger.info('Total Time Spent: $totalDuration');
-    _logger.info('Unique Tags: $tags');
   }
 
   @override
@@ -124,14 +101,17 @@ class HipsterScreen implements GameScreen {
 
   @override
   void mouseClick(int x, int y, MouseButton mouseButton) {
-    _logger.info('asdas');
-
     for (int i = 0; i < _songList.length; i++) {
       if (x >= _songSegments[i].x &&
           x <= _songSegments[i].x + _blockSize &&
           y >= _songSegments[i].y &&
           y <= _songSegments[i].y + _blockSize) {
-        window.location.href = 'https://www.suno.com/song/${_songList[i].id}';
+        // ignore: unsafe_html
+        window.open(
+          'https://www.suno.com/song/${_songList[i].id}',
+          '_blank',
+          'noopener,noreferrer',
+        );
       }
     }
   }
@@ -160,7 +140,7 @@ class HipsterScreen implements GameScreen {
       _renderer.print(
         x: 170,
         y: 250,
-        msg: 'Hipster: Music Meta Data Analysis',
+        msg: 'Hipster: Meta Data Analysis',
         font: Font(
           size: 32,
           family: 'Arial',
@@ -358,14 +338,14 @@ class HipsterScreen implements GameScreen {
     final totalDuration = DateTime.parse(_songList.last.created)
         .difference(DateTime.parse(_songList.first.created));
 
-    offsetY += 30;
+    offsetY += 12;
 
     _renderer.print(
       x: offsetX,
       y: offsetY,
       msg: 'Creation Time: $totalDuration',
       font: Font(
-        size: 12,
+        size: 10,
         family: 'vt323',
         color: Color(
           red: 255,
@@ -375,14 +355,14 @@ class HipsterScreen implements GameScreen {
       ),
     );
 
-    offsetY += 20;
+    offsetY += 12;
 
     _renderer.print(
       x: offsetX,
       y: offsetY,
       msg: 'Total Segments: ${_songList.length}',
       font: Font(
-        size: 12,
+        size: 10,
         family: 'vt323',
         color: Color(
           red: 255,
@@ -507,6 +487,21 @@ class HipsterScreen implements GameScreen {
 
     for (int i = 0; i < _songList.length; i++) {
       if (i == _currentSong) {
+        _renderer.print(
+          x: 200,
+          y: 160,
+          msg: 'Play: ${_songList[i].id}',
+          font: Font(
+            size: 10,
+            family: 'vt323',
+            color: Color(
+              red: 255,
+              green: 255,
+              blue: 255,
+            ),
+          ),
+        );
+
         _renderer.rect(
           x: _songSegments[i].x,
           y: _songSegments[i].y,

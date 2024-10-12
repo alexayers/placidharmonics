@@ -51,29 +51,26 @@ class TeenyTinyTwoDeeApp {
         event.preventDefault();
       }
 
+      final mouseButton = switch (event.button) {
+        0 => MouseButton.left,
+        1 => MouseButton.middle,
+        2 => MouseButton.right,
+        _ => MouseButton.unknown,
+      };
+
+      final rect = _renderer.getBoundingClientRect();
+      final canvasX = (event.client.x - rect.left) *
+          _renderer.getCanvasWidth() ~/
+          rect.width;
+      final canvasY = (event.client.y - rect.top) *
+          _renderer.getCanvasHeight() ~/
+          rect.height;
+
       if (_currentGameScreenOverlay != null) {
-        final mouseButton = switch (event.button) {
-          0 => MouseButton.left,
-          1 => MouseButton.middle,
-          2 => MouseButton.right,
-          _ => MouseButton.unknown,
-        };
-
-        final rect = _renderer.getBoundingClientRect();
-        final canvasX = (event.client.x - rect.left) *
-            _renderer.getCanvasWidth() ~/
-            rect.width;
-        final canvasY = (event.client.y - rect.top) *
-            _renderer.getCanvasHeight() ~/
-            rect.height;
-
-        if (_currentGameScreenOverlay != null) {
-          _widgetManagers[_currentOverlayScreenName]!
-              .mouseClick(canvasX, canvasY, mouseButton);
-        } else {
-          _currentGameScreen.mouseClick(canvasX, canvasY, mouseButton);
-        }
-        return;
+        _widgetManagers[_currentOverlayScreenName]!
+            .mouseClick(canvasX, canvasY, mouseButton);
+      } else {
+        _currentGameScreen.mouseClick(canvasX, canvasY, mouseButton);
       }
     });
 
