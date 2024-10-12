@@ -259,6 +259,21 @@ class HipsterScreen implements GameScreen {
     int offsetY = 70;
     const offsetX = 55;
     final lyrics = _songList[_currentSong].prompt.split('\n');
+    final specialWords = [
+      'verse',
+      'chorus',
+      'bridge',
+      'verse 1',
+      'verse 2',
+      'verse 3',
+      'verse 4',
+      'verse 5',
+      'verse 6',
+      'outro',
+      'intro',
+      'pre-chorus',
+      'prechorus',
+    ];
 
     final DivElement lyricsDiv = querySelector('#lyrics')! as DivElement;
     lyricsDiv.children.clear();
@@ -292,9 +307,18 @@ class HipsterScreen implements GameScreen {
       for (final part in parts) {
         final partSpan = SpanElement();
         if (part.startsWith('(') && part.endsWith(')')) {
-          partSpan.style.color = 'DeepSkyBlue';
+          if (specialWords.contains(
+            part.replaceAll('(', '').replaceAll(')', '').trim().toLowerCase(),
+          )) {
+            partSpan.style.color = 'HotPink';
+          } else {
+            partSpan.style.color = 'DeepSkyBlue';
+          }
         } else {
-          partSpan.style.color = line.contains('[') ? 'HotPink' : 'white';
+          partSpan.style.color = line.contains('[') ||
+                  specialWords.contains(line.trim().toLowerCase())
+              ? 'HotPink'
+              : 'white';
         }
         partSpan.text = part;
         lineDiv.append(partSpan);
@@ -518,6 +542,16 @@ class HipsterScreen implements GameScreen {
       '#bade28',
       '#dde318',
       '#fde725',
+      '#faf921',
+      '#f6f51d',
+      '#f3f219',
+      '#eff016',
+      '#ebec13',
+      '#e7e80f',
+      '#e3e40b',
+      '#dfdf08',
+      '#dcd905',
+      '#d8d402',
     ];
 
     for (int i = 0; i < _songList.length; i++) {
