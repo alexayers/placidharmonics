@@ -3,6 +3,6 @@
 import 'package:template/app.dart';
 
 void main() {
-  final app = TemplateApp();
+  final app = TemplateApp(application: false);
   app.init();
 }

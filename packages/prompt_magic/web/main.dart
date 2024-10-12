@@ -3,6 +3,6 @@
 import 'package:prompt_magic/app.dart';
 
 void main() {
-  final app = PlacidHarmonics();
+  final app = PlacidHarmonics(application: false);
   app.init();
 }

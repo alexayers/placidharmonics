@@ -3,6 +3,6 @@
 import 'package:glitch/app.dart';
 
 void main() {
-  final app = GlitchApp();
+  final app = GlitchApp(application: false);
   app.init();
 }

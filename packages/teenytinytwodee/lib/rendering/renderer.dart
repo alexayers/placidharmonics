@@ -12,7 +12,7 @@ class Renderer {
   }
   Renderer._privateConstructor() {
     final container = DivElement();
-    container.id = 'container';
+    container.id = '__teenytinytwodee';
 
     _canvas = CanvasElement(width: 800, height: 600);
     _canvas.id = 'game';
@@ -116,8 +116,10 @@ class Renderer {
     _ctx.fillStyle =
         rbgToHex(font.color.red, font.color.green, font.color.blue);
     _ctx.globalAlpha = font.color.alpha;
-    _ctx.fillText(msg, x, y);
+
     _ctx.imageSmoothingEnabled = false;
+
+    _ctx.fillText(msg, x, y);
     _ctx.globalAlpha = 1;
   }
 

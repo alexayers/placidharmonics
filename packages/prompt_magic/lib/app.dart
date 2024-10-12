@@ -4,6 +4,8 @@ import 'package:teenytinytwodee/application/game_screen.dart';
 import 'package:teenytinytwodee/application/teeny_tiny_two_dee.dart';
 
 class PlacidHarmonics extends TeenyTinyTwoDeeApp {
+  PlacidHarmonics({required super.application});
+
   void init() {
     final Map<String, GameScreen> gameScreens = {};
 

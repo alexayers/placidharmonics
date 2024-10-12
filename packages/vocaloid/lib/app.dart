@@ -4,6 +4,8 @@ import 'package:vocaloid/screens/screens.dart';
 import 'package:vocaloid/screens/vocaloid_screen.dart';
 
 class VocaloidApp extends TeenyTinyTwoDeeApp {
+  VocaloidApp({required super.application});
+
   void init() {
     final Map<String, GameScreen> gameScreens = {};
 

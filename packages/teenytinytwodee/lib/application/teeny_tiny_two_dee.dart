@@ -13,17 +13,22 @@ import 'package:teenytinytwodee/logger/logger.dart';
 import 'package:teenytinytwodee/rendering/renderer.dart';
 
 class TeenyTinyTwoDeeApp {
-  TeenyTinyTwoDeeApp() {
+  TeenyTinyTwoDeeApp({required bool application}) {
     // ConfigurationManager.init(cfg);
     _logger.info('TeenyTinyTwoDeeApp - Dart V: 0.0.1');
 
     window.onKeyDown.listen((KeyboardEvent event) {
-      event.preventDefault();
+      if (application == false) {
+        event.preventDefault();
+      }
+
       _gameEventBus.publish(KeyPressEvent(event.keyCode));
     });
 
     window.onMouseMove.listen((MouseEvent event) {
-      event.preventDefault();
+      if (application == false) {
+        event.preventDefault();
+      }
 
       final rect = _renderer.getBoundingClientRect();
       final canvasX = (event.client.x - rect.left) *
@@ -42,7 +47,10 @@ class TeenyTinyTwoDeeApp {
     });
 
     window.onMouseDown.listen((MouseEvent event) {
-      event.preventDefault();
+      if (application == false) {
+        event.preventDefault();
+      }
+
       if (_currentGameScreenOverlay != null) {
         final mouseButton = switch (event.button) {
           0 => MouseButton.left,
@@ -59,8 +67,12 @@ class TeenyTinyTwoDeeApp {
             _renderer.getCanvasHeight() ~/
             rect.height;
 
-        _widgetManagers[_currentOverlayScreenName]!
-            .mouseClick(canvasX, canvasY, mouseButton);
+        if (_currentGameScreenOverlay != null) {
+          _widgetManagers[_currentOverlayScreenName]!
+              .mouseClick(canvasX, canvasY, mouseButton);
+        } else {
+          _currentGameScreen.mouseClick(canvasX, canvasY, mouseButton);
+        }
         return;
       }
     });

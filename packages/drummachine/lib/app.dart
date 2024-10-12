@@ -4,6 +4,8 @@ import 'package:teenytinytwodee/application/game_screen.dart';
 import 'package:teenytinytwodee/application/teeny_tiny_two_dee.dart';
 
 class DrumMachineApp extends TeenyTinyTwoDeeApp {
+  DrumMachineApp({required super.application});
+
   void init() {
     final Map<String, GameScreen> gameScreens = {};
 

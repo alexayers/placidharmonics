@@ -4,6 +4,8 @@ import 'package:template/screens/main_screen.dart';
 import 'package:template/screens/screens.dart';
 
 class TemplateApp extends TeenyTinyTwoDeeApp {
+  TemplateApp({required super.application});
+
   void init() {
     final Map<String, GameScreen> gameScreens = {};
 
