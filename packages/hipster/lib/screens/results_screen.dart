@@ -266,15 +266,40 @@ class HipsterScreen implements GameScreen {
     for (final line in lyrics) {
       final lineDiv = DivElement();
 
+      if (line.isEmpty) {
+        offsetY += 15;
+        lineDiv.text = line;
+        lyricsDiv.append(lineDiv);
+        continue;
+      }
+
       lineDiv.style
         ..position = 'absolute'
         ..top = '${offsetY}px'
         ..left = '${offsetX}px'
-        ..color = line.contains('[') ? 'HotPink' : 'white'
         ..fontFamily = 'Arial'
         ..fontSize = '12px';
 
-      lineDiv.text = line;
+      final regExp = RegExp(r'(\(.*?\))');
+      final parts = line
+          .splitMapJoin(
+            regExp,
+            onMatch: (m) => '|${m.group(0)}|',
+            onNonMatch: (n) => n,
+          )
+          .split('|');
+
+      for (final part in parts) {
+        final partSpan = SpanElement();
+        if (part.startsWith('(') && part.endsWith(')')) {
+          partSpan.style.color = 'DeepSkyBlue';
+        } else {
+          partSpan.style.color = line.contains('[') ? 'HotPink' : 'white';
+        }
+        partSpan.text = part;
+        lineDiv.append(partSpan);
+      }
+
       lyricsDiv.append(lineDiv);
 
       offsetY += 15;
@@ -288,9 +313,11 @@ class HipsterScreen implements GameScreen {
     _renderer.print(
       x: offsetX - 2,
       y: offsetY,
-      msg: 'Title: ${_songList.last.title}',
+      msg: _songList.last.title.length > 40
+          ? 'Title: ${_songList.last.title.substring(0, 40)}...'
+          : 'Title: ${_songList.last.title}',
       font: Font(
-        size: 14,
+        size: 13,
         family: 'Arial',
         color: Color(
           red: 255,
@@ -397,7 +424,9 @@ class HipsterScreen implements GameScreen {
     _renderer.print(
       x: offsetX,
       y: offsetY,
-      msg: 'Title: ${_songList[_currentSong].title}',
+      msg: _songList[_currentSong].title.length > 40
+          ? 'Title: ${_songList[_currentSong].title.substring(0, 40)}...'
+          : 'Title: ${_songList[_currentSong].title}',
       font: Font(
         size: 12,
         family: 'Arial',
