@@ -590,8 +590,8 @@ class HipsterScreen implements GameScreen {
       x: offsetX,
       y: offsetY,
       msg: _songList[_currentSong].artistName.length > 40
-          ? 'Artists: : ${_songList[_currentSong].artistName.substring(0, 40)}...'
-          : 'Artists: : ${_songList[_currentSong].artistName}',
+          ? 'Artists: ${_songList[_currentSong].artistName.substring(0, 40)}...'
+          : 'Artists: ${_songList[_currentSong].artistName}',
       font: Font(
         size: 10,
         family: 'Arial',
