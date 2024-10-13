@@ -26,11 +26,11 @@ body {
 
 #lyrics {
   position: absolute;
-  right: 50px;
+  right: 10px;
   font-size: 1.0em;
   font-family: 'Oxanium', sans-serif;
   color: white;
-  width: 500px;
+  width: 700px;
   height: 100%;
   z-index: 900;
 }

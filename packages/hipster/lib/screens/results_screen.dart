@@ -372,6 +372,7 @@ class HipsterScreen implements GameScreen {
     }
   }
 
+  // Yeah so we're pounding the hell out of the DOM here and I'm not proud of it
   void _renderLyrics() {
     int offsetY = 70;
     const offsetX = 55;
