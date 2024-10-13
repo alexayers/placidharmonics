@@ -555,7 +555,7 @@ class HipsterScreen implements GameScreen {
       y: offsetY,
       msg: 'Id: ${_songList[_currentSong].id}',
       font: Font(
-        size: 12,
+        size: 10,
         family: 'Arial',
         color: Color(
           red: 255,
@@ -574,7 +574,7 @@ class HipsterScreen implements GameScreen {
           ? 'Title: ${_songList[_currentSong].title.substring(0, 40)}...'
           : 'Title: ${_songList[_currentSong].title}',
       font: Font(
-        size: 12,
+        size: 10,
         family: 'Arial',
         color: Color(
           red: 255,
@@ -593,7 +593,7 @@ class HipsterScreen implements GameScreen {
           ? 'Artists: : ${_songList[_currentSong].artistName.substring(0, 40)}...'
           : 'Artists: : ${_songList[_currentSong].artistName}',
       font: Font(
-        size: 12,
+        size: 10,
         family: 'Arial',
         color: Color(
           red: 255,
@@ -610,7 +610,7 @@ class HipsterScreen implements GameScreen {
       y: offsetY,
       msg: 'Type: ${_songList[_currentSong].type}',
       font: Font(
-        size: 12,
+        size: 10,
         family: 'Arial',
         color: Color(
           red: 255,
@@ -627,7 +627,7 @@ class HipsterScreen implements GameScreen {
       y: offsetY,
       msg: 'Created: ${_songList[_currentSong].created}',
       font: Font(
-        size: 12,
+        size: 10,
         family: 'Arial',
         color: Color(
           red: 255,
