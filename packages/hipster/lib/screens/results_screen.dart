@@ -45,9 +45,104 @@ class HipsterScreen implements GameScreen {
   final List<SongSegment> _songSegments = [];
   final _renderer = Renderer();
   int _currentSong = 0;
-  final _blockSize = 16;
+  final _blockSize = 10;
+  int _loadTicker = 0;
   late String? _songID;
   final Set<String> _artists = {};
+
+  // If we exhaust this gradient inform user to just learn an instrument
+  final _gradientColors = [
+    '#8b00ff',
+    '#8800f9',
+    '#8300f0',
+    '#7f00e7',
+    '#7a00df',
+    '#7600d6',
+    '#7100cd',
+    '#6d00c4',
+    '#6800bb',
+    '#6500b5',
+    '#6100ad',
+    '#5c00a4',
+    '#58009b',
+    '#530092',
+    '#4f0089',
+    '#4a0083',
+    '#45008c',
+    '#410092',
+    '#3c009b',
+    '#3700a4',
+    '#3100ad',
+    '#2c00b5',
+    '#2700be',
+    '#2200c7',
+    '#1c00d0',
+    '#1900d6',
+    '#1300df',
+    '#0e00e7',
+    '#0900f0',
+    '#0400f9',
+    '#0006f9',
+    '#0018e7',
+    '#002ad5',
+    '#0036c9',
+    '#0048b7',
+    '#005aa5',
+    '#006c93',
+    '#007e81',
+    '#00906f',
+    '#00a25d',
+    '#00b44b',
+    '#00c03f',
+    '#00d22d',
+    '#00e41b',
+    '#00f609',
+    '#09ff00',
+    '#1bff00',
+    '#2dff00',
+    '#3fff00',
+    '#4bff00',
+    '#5dff00',
+    '#6fff00',
+    '#81ff00',
+    '#93ff00',
+    '#a5ff00',
+    '#b7ff00',
+    '#c9ff00',
+    '#d5ff00',
+    '#e7ff00',
+    '#f9ff00',
+    '#fff900',
+    '#fff000',
+    '#ffe700',
+    '#ffde00',
+    '#ffd500',
+    '#ffcf00',
+    '#ffc600',
+    '#ffbd00',
+    '#ffb400',
+    '#ffab00',
+    '#ffa200',
+    '#ff9900',
+    '#ff9000',
+    '#ff8a00',
+    '#ff8100',
+    '#ff7800',
+    '#ff6f00',
+    '#ff6600',
+    '#ff5d00',
+    '#ff5400',
+    '#ff4b00',
+    '#ff4500',
+    '#ff3c00',
+    '#ff3300',
+    '#ff2a00',
+    '#ff2100',
+    '#ff1800',
+    '#ff0f00',
+    '#ff0600',
+    '#ff0000',
+  ];
 
   @override
   Future<void> init() async {
@@ -64,10 +159,12 @@ class HipsterScreen implements GameScreen {
 
     final Set<String> tags = {};
 
-    const offsetY = 168;
+    int offsetY = 168;
     int offsetX = 200;
+    const blockCountPerRow = 20;
 
-    for (final song in _songList) {
+    for (int i = 0; i < _songList.length; i++) {
+      final song = _songList[i];
       _artistImages.add(ImageElement(src: song.avatarImageUrl));
       _coverImages.add(ImageElement(src: song.image));
       tags.addAll(song.tags.split(',').map((e) => e.trim()));
@@ -87,7 +184,13 @@ class HipsterScreen implements GameScreen {
         ),
       );
 
-      offsetX += _blockSize;
+      if ((i + 1) % blockCountPerRow == 0) {
+        offsetX = 200;
+        offsetY += _blockSize;
+      } else {
+        offsetX += _blockSize;
+      }
+
       _artists.add(song.artistName);
     }
     _currentSong = _songList.length - 1;
@@ -167,6 +270,20 @@ class HipsterScreen implements GameScreen {
           ),
         ),
       );
+
+      _renderer.rect(
+        x: 0,
+        y: 300,
+        width: _renderer.getCanvasWidth(),
+        height: 16,
+        color: hexToColor(_gradientColors[_loadTicker]),
+      );
+
+      _loadTicker++;
+      if (_loadTicker >= _gradientColors.length) {
+        _loadTicker = 0;
+      }
+
       return;
     }
 
@@ -429,7 +546,7 @@ class HipsterScreen implements GameScreen {
   }
 
   void _renderSegmentCard() {
-    int offsetY = 220;
+    int offsetY = 240;
     const offsetX = 200;
 
     _renderer.print(
@@ -521,39 +638,6 @@ class HipsterScreen implements GameScreen {
   }
 
   void _renderSegments() {
-    final segmentColors = [
-      '#440154',
-      '#481467',
-      '#482576',
-      '#453781',
-      '#404688',
-      '#39558c',
-      '#33638d',
-      '#2d718e',
-      '#287d8e',
-      '#238a8d',
-      '#1f968b',
-      '#20a386',
-      '#29af7f',
-      '#3dbc74',
-      '#56c667',
-      '#75d054',
-      '#95d840',
-      '#bade28',
-      '#dde318',
-      '#fde725',
-      '#faf921',
-      '#f6f51d',
-      '#f3f219',
-      '#eff016',
-      '#ebec13',
-      '#e7e80f',
-      '#e3e40b',
-      '#dfdf08',
-      '#dcd905',
-      '#d8d402',
-    ];
-
     for (int i = 0; i < _songList.length; i++) {
       if (i == _currentSong) {
         _renderer.print(
@@ -588,7 +672,9 @@ class HipsterScreen implements GameScreen {
           y: _songSegments[i].y,
           width: _blockSize,
           height: _blockSize,
-          color: hexToColor(segmentColors[i]),
+          color: i < (_gradientColors.length - 1)
+              ? hexToColor(_gradientColors[i])
+              : Color(red: 255, green: 255, blue: 255),
         );
       }
     }
