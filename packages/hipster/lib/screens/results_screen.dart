@@ -148,6 +148,7 @@ class HipsterScreen implements GameScreen {
   Future<void> init() async {
     final currentUrl = window.location.href;
     final uri = Uri.parse(currentUrl);
+    _renderer.enableImageSmoothing();
 
     if (!uri.queryParameters.containsKey('song')) {
       _songID = null;
@@ -167,7 +168,7 @@ class HipsterScreen implements GameScreen {
       final song = _songList[i];
       _artistImages.add(ImageElement(src: song.avatarImageUrl));
       _coverImages.add(ImageElement(src: song.image));
-      tags.addAll(song.tags.split(',').map((e) => e.trim()));
+      tags.addAll(song.tags.split(RegExp('[;,+]')).map((e) => e.trim()));
 
       _songSegments.add(
         SongSegment(
@@ -344,7 +345,7 @@ class HipsterScreen implements GameScreen {
 
     final tags = _songList[_currentSong]
         .tags
-        .split(RegExp(r'[,\s;]+'))
+        .split(RegExp(r'[+,\s;]+'))
         .map((e) => e.trim())
         .toList();
 
