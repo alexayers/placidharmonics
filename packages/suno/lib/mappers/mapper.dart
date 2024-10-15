@@ -8,6 +8,7 @@ SunoSong responseToSunoSong(Map<String, dynamic> songMap) {
   String tags = '';
   String title = '';
   double duration = 0;
+  String coverClipId = '';
 
   if (!songMap.containsKey('title') || songMap['title'] == null) {
     title = songMap['prompt'] as String;
@@ -44,6 +45,10 @@ SunoSong responseToSunoSong(Map<String, dynamic> songMap) {
     duration = metadata['duration'] as double;
   }
 
+  if (metadata.containsKey('cover_clip_id')) {
+    coverClipId = metadata['cover_clip_id'] as String;
+  }
+
   return SunoSong(
     title: title,
     image:
@@ -67,6 +72,7 @@ SunoSong responseToSunoSong(Map<String, dynamic> songMap) {
     upvoteCount: songMap.containsKey('upvote_count')
         ? songMap['upvote_count'] as int
         : 0,
+    coverClipId: coverClipId != '' ? coverClipId : null,
   );
 }
 

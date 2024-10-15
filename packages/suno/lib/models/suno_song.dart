@@ -14,6 +14,7 @@ class SunoSong {
     required this.created,
     required this.playCount,
     required this.upvoteCount,
+    this.coverClipId,
   });
   String title;
   String type;
@@ -27,6 +28,7 @@ class SunoSong {
   String prompt;
   String created;
   String image;
+  String? coverClipId;
   int playCount;
   int upvoteCount;
 }

@@ -28,7 +28,14 @@ class SunoApi {
       listOfSongs.add(sunoSong);
       songIds.add(sunoSong.id);
 
+      // Add cover clip id to the stack
+      if (sunoSong.coverClipId != null) {
+        print('Adding cover clip id to stack');
+        songStack.add(sunoSong.coverClipId!);
+      }
+
       for (final songId in sunoSong.songIds) {
+        // Songs that are uploaded have m_ prefix for some reason
         if (!songIds.contains(songId.replaceAll('m_', ''))) {
           songStack.add(songId.replaceAll('m_', ''));
         }
