@@ -452,12 +452,13 @@ class HipsterScreen implements GameScreen {
   void _renderSong() {
     const offsetX = 200;
     int offsetY = 70;
+    const maxLineLength = 27;
 
     _renderer.print(
       x: offsetX - 2,
       y: offsetY,
-      msg: _songList.last.title.length > 40
-          ? 'Title: ${_songList.last.title.substring(0, 40)}...'
+      msg: _songList.last.title.length > maxLineLength
+          ? 'Title: ${_songList.last.title.substring(0, maxLineLength)}...'
           : 'Title: ${_songList.last.title}',
       font: Font(
         size: 13,
@@ -477,8 +478,8 @@ class HipsterScreen implements GameScreen {
     _renderer.print(
       x: offsetX,
       y: offsetY,
-      msg: artists.length > 40
-          ? 'Artists: ${artists.substring(0, 40)}...'
+      msg: artists.length > maxLineLength
+          ? 'Artists: ${artists.substring(0, maxLineLength)}...'
           : 'Artists: $artists',
       font: Font(
         size: 12,
@@ -550,6 +551,7 @@ class HipsterScreen implements GameScreen {
   void _renderSegmentCard() {
     int offsetY = 240;
     const offsetX = 200;
+    const maxLineLength = 27;
 
     _renderer.print(
       x: offsetX,
@@ -571,8 +573,8 @@ class HipsterScreen implements GameScreen {
     _renderer.print(
       x: offsetX,
       y: offsetY,
-      msg: _songList[_currentSong].title.length > 40
-          ? 'Title: ${_songList[_currentSong].title.substring(0, 40)}...'
+      msg: _songList[_currentSong].title.length > maxLineLength
+          ? 'Title: ${_songList[_currentSong].title.substring(0, maxLineLength)}...'
           : 'Title: ${_songList[_currentSong].title}',
       font: Font(
         size: 10,
@@ -590,8 +592,8 @@ class HipsterScreen implements GameScreen {
     _renderer.print(
       x: offsetX,
       y: offsetY,
-      msg: _songList[_currentSong].artistName.length > 40
-          ? 'Artists: ${_songList[_currentSong].artistName.substring(0, 40)}...'
+      msg: _songList[_currentSong].artistName.length > maxLineLength
+          ? 'Artists: ${_songList[_currentSong].artistName.substring(0, maxLineLength)}...'
           : 'Artists: ${_songList[_currentSong].artistName}',
       font: Font(
         size: 10,
