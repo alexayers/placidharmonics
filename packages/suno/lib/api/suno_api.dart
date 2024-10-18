@@ -18,6 +18,7 @@ class SunoApi {
       final results =
           await http.get(Uri.https(baseAPI, '/api/clip/$songToGrab'));
 
+      // User hard deleted song :-(
       if (results.statusCode != 200) {
         continue;
       }
@@ -30,7 +31,6 @@ class SunoApi {
 
       // Add cover clip id to the stack
       if (sunoSong.coverClipId != null) {
-        print('Adding cover clip id to stack');
         songStack.add(sunoSong.coverClipId!);
       }
 
